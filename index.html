@@ -1,0 +1,708 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Главный экран и структура сайта Capsula House: капсульные дома под ключ в Таджикистане, каталог моделей с ценой и размером, заявка с адресом участка">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Capsula House · главный экран и структура сайта">
+<meta property="og:description" content="Капсульный дом 35 м² под ключ: модель, цена, размер и заявка с адресом участка в WhatsApp">
+<meta property="og:image" content="https://mmaemi77-ctrl.github.io/capsulahouse/og-glavnyi.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0D0D10">
+<title>Capsula House · главный экран</title>
+<link rel="icon" href="img/avatar.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400&family=Manrope:wght@500;600;700&family=Onest:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: слева обещание и плашка модели, справа настоящее фото выезда с трекером этапов; под ними каталог категорий. Второй экран: схема дома и заявка в два шага. Ниже структура сайта блоками */
+:root{
+  --bg:#0D0D10;
+  --bg2:#111115;
+  --surface:#17171C;
+  --surface2:#1F1F26;
+  --ink:#F4F2EE;
+  --muted:#ADA9A2;
+  --dim:#7B7771;
+  --line:#2B2B32;
+  --gold:#D9AE68;
+  --gold-hi:#F1CD8C;
+  --gold-tint:#2A2318;
+  --gold-line:#4D3D24;
+  --wa:#25D366;
+  --font:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --display:"Manrope","Onest",system-ui,sans-serif;
+  --logo:"Jost","Onest",system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-padding-top:84px;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.5;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+.wrap{max-width:1280px;margin:0 auto;padding-left:max(clamp(16px,2.6vw,32px),env(safe-area-inset-left,0px));padding-right:max(clamp(16px,2.6vw,32px),env(safe-area-inset-right,0px))}
+h1,h2,h3{margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+button,input{font-family:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:14px;padding:15px 24px;font-weight:700;font-size:16px;line-height:1.2;cursor:pointer;text-decoration:none;transition:transform .15s,background-color .15s,box-shadow .15s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px)}
+.btn svg{width:19px;height:19px;flex:none}
+.btn.gold{background:var(--gold);color:#1A1309;box-shadow:0 12px 32px -14px rgb(217 174 104 / .9)}
+.btn.gold:hover{background:var(--gold-hi)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn.ghost:hover{box-shadow:inset 0 0 0 1.5px var(--muted)}
+.btn.ghost svg{color:var(--wa)}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+/* метка наброска и шапка */
+.draft{background:var(--gold-tint);color:#E6D3B0;font-size:12.5px;line-height:1.35;padding:7px 16px;text-align:center;border-bottom:1px solid var(--gold-line)}
+.draft .sm{display:none}
+@media (max-width:640px){.draft .lg{display:none}.draft .sm{display:inline}}
+header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;gap:28px;padding-block:12px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;flex:none;color:var(--ink)}
+.logo svg{width:34px;height:34px;flex:none}
+.logo span{display:grid;line-height:1}
+.logo b{font-family:var(--logo);font-weight:400;font-size:21px;letter-spacing:.12em}
+.logo small{font-family:var(--logo);font-weight:400;font-size:9.5px;letter-spacing:.62em;color:var(--muted);margin-top:4px;padding-left:1px}
+nav{display:flex;gap:24px;font-size:15px;font-weight:600;margin-left:auto}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+.h-right{display:flex;align-items:center;gap:10px}
+.wa-top{display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:700;white-space:nowrap;border:1.5px solid var(--line);border-radius:12px;padding:10px 14px;text-decoration:none}
+.wa-top:hover{border-color:var(--muted)}
+.wa-top svg{width:18px;height:18px;color:var(--wa)}
+.ic{width:44px;height:44px;border-radius:13px;border:1.5px solid var(--line);background:var(--surface);display:grid;place-items:center;cursor:pointer;text-decoration:none;flex:none;color:var(--ink)}
+.ic:hover{border-color:var(--muted)}
+.ic svg{width:20px;height:20px}
+.ic.wa{color:var(--wa);display:none}
+.ic.menu{display:none}
+@media (max-width:1120px){nav{display:none}.h-right{margin-left:auto}}
+@media (max-width:640px){.wa-top{display:none}.ic.wa,.ic.menu{display:grid}.ic.ig{display:none}.logo b{font-size:18px}.logo small{font-size:8.5px}.logo svg{width:30px;height:30px}header .wrap{gap:12px;padding-block:10px}.ic{width:42px;height:42px;border-radius:12px}}
+
+/* первый экран */
+.hero-bg{position:relative;overflow:hidden;isolation:isolate}
+.hero-bg::before{content:"";position:absolute;z-index:-1;inset:-20% -20% auto 25%;height:720px;background:radial-gradient(closest-side,rgb(217 174 104 / .17),transparent 70%),radial-gradient(closest-side at 25% 75%,rgb(110 125 170 / .10),transparent 70%);filter:blur(12px)}
+.hero{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);grid-template-areas:"t p" "m p";column-gap:clamp(24px,4vw,56px);row-gap:26px;padding-block:clamp(22px,2.8vw,38px) 18px;align-items:center}
+.h-t{grid-area:t;display:grid;gap:18px;align-self:end}
+.h-m{grid-area:m;display:grid;gap:14px;align-self:start}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(34px,3.85vw,56px);line-height:1.05;letter-spacing:-.035em}
+h1 em{font-style:normal;color:var(--gold-hi)}
+.sub{font-size:clamp(16.5px,1.35vw,19px);line-height:1.5;color:var(--muted);max-width:44ch}
+.sub b{color:var(--ink);font-weight:700}
+.cta{display:flex;flex-wrap:wrap;gap:10px}
+.cta .btn.gold{flex:1 1 auto}
+
+/* плашка модели */
+.mbar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch;background:linear-gradient(180deg,#1E1B16,#17161A);border:1px solid var(--gold-line);border-radius:20px;text-decoration:none;color:var(--ink);overflow:hidden;transition:border-color .15s}
+.mbar:hover{border-color:var(--gold)}
+.mbar>span{display:grid;align-content:center;gap:2px;padding:14px 16px;border-left:1px solid #2E2A22}
+.mbar>span:first-child{grid-column:1/-1;border-left:0;border-bottom:1px solid #2E2A22;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;padding-block:12px}
+.mbar>span:nth-child(2){border-left:0}
+.mbar b{font-size:16px;font-weight:700;line-height:1.25}
+.mbar i{font-style:normal;font-family:var(--display);font-weight:700;font-size:clamp(18px,1.6vw,22px);letter-spacing:-.02em;line-height:1.1;white-space:nowrap}
+.mbar .pr i{color:var(--gold-hi)}
+.mbar small{font-size:12.5px;color:var(--dim);line-height:1.35}
+
+/* фото с трекером */
+.shot{grid-area:p;position:relative;margin:0;border-radius:30px;overflow:hidden;aspect-ratio:1.22;border:1px solid #2E2E36;background:#1A1A20;box-shadow:0 50px 90px -50px rgb(0 0 0 / .9),0 0 0 1px rgb(255 255 255 / .03) inset}
+.shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:100% 50%;filter:saturate(.92) contrast(1.06) brightness(.97)}
+.shot::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgb(13 13 16 / .35) 0%,transparent 22%,transparent 50%,rgb(13 13 16 / .88) 100%),radial-gradient(120% 70% at 70% 0%,rgb(241 205 140 / .14),transparent 60%);pointer-events:none}
+.live{position:absolute;z-index:2;left:16px;top:16px;display:inline-flex;align-items:center;gap:9px;font-size:13.5px;font-weight:700;color:#F6EFE2;background:rgb(13 13 16 / .62);border:1px solid rgb(255 255 255 / .14);border-radius:999px;padding:7px 13px 7px 11px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.live i{width:9px;height:9px;border-radius:50%;background:var(--gold-hi);box-shadow:0 0 0 0 rgb(241 205 140 / .7);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgb(241 205 140 / .6)}70%{box-shadow:0 0 0 9px rgb(241 205 140 / 0)}100%{box-shadow:0 0 0 0 rgb(241 205 140 / 0)}}
+.track{position:absolute;z-index:2;left:16px;right:16px;bottom:16px;background:rgb(15 15 19 / .7);border:1px solid rgb(255 255 255 / .12);border-radius:20px;padding:14px 16px 16px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);display:grid;gap:12px}
+.tr-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.tr-h b{font-size:15px;font-weight:700}
+.tr-h span{font-size:12.5px;color:var(--muted);white-space:nowrap}
+.track ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));position:relative}
+.track ol::before{content:"";position:absolute;left:6px;width:75%;top:6px;height:2px;background:rgb(255 255 255 / .16)}
+.track ol::after{content:"";position:absolute;left:6px;width:50%;top:6px;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-hi))}
+.track li{position:relative;z-index:1;display:grid;gap:7px;justify-items:start;font-size:13px;font-weight:600;color:var(--muted)}
+.track li i{width:14px;height:14px;border-radius:50%;background:#3A3A44;border:2px solid #0F0F13}
+.track li.done{color:#E3DCCF}
+.track li.done i{background:var(--gold)}
+.track li.now{color:#FFF6E6}
+.track li.now i{background:var(--gold-hi);box-shadow:0 0 0 4px rgb(241 205 140 / .25)}
+
+/* каталог категорий */
+.cats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;padding-bottom:clamp(40px,5vw,64px)}
+.cat{display:grid;grid-template-columns:44px minmax(0,1fr) auto;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:12px 14px;text-decoration:none;color:var(--ink);transition:border-color .15s,transform .15s}
+.cat:hover{border-color:var(--muted);transform:translateY(-2px)}
+.cat.on{border-color:var(--gold-line);background:linear-gradient(180deg,#1E1B16,#17161A)}
+.cat .ci{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;background:var(--bg2);border:1px solid var(--line);color:var(--gold)}
+.cat .ci svg{width:22px;height:22px}
+.cat b{display:block;font-size:15px;font-weight:700;line-height:1.25}
+.cat small{display:block;font-size:13px;color:var(--muted)}
+.cat .arr{color:var(--dim);font-weight:700}
+
+/* подбор модели и заявка */
+.podbor{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.95fr);gap:clamp(24px,4.5vw,64px);align-items:center;padding-bottom:clamp(48px,6vw,84px);scroll-margin-top:84px}
+.pb-l{display:grid;gap:16px;align-content:start}
+.pb-l h2{font-family:var(--display);font-weight:700;font-size:clamp(26px,2.8vw,40px);line-height:1.1;letter-spacing:-.03em}
+.plan{margin:10px 0 0;background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:16px 16px 12px}
+.plan svg{display:block;width:100%;height:auto}
+.plan figcaption{font-size:13px;color:var(--dim);margin-top:6px}
+.stage{background:linear-gradient(180deg,var(--surface2),var(--surface));border:1px solid var(--line);border-radius:28px;padding:20px;box-shadow:0 40px 80px -40px rgb(0 0 0 / .85),0 0 0 1px rgb(255 255 255 / .02) inset;display:grid;gap:16px}
+.st-in{display:grid;gap:14px}
+.tabs{display:flex;flex-wrap:wrap;gap:6px}
+.tabs label{position:relative;cursor:pointer}
+.tabs input{position:absolute;opacity:0;pointer-events:none}
+.tabs span{display:block;border:1.5px solid var(--line);border-radius:11px;padding:8px 12px;font-size:14px;font-weight:600;white-space:nowrap;background:var(--bg2)}
+.tabs input:checked+span{border-color:var(--gold);background:var(--gold-tint);color:#FFF6E6}
+.tabs input:focus-visible+span{outline:2px solid var(--gold-hi);outline-offset:2px}
+.model{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 14px;align-items:end;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding-block:14px}
+.model h3{font-family:var(--display);font-weight:700;font-size:clamp(20px,1.7vw,24px);letter-spacing:-.02em;line-height:1.15}
+.model .sz{font-size:14px;color:var(--muted);margin-top:3px}
+.model .pr{text-align:right}
+.model .pr b{display:block;font-family:var(--display);font-weight:700;font-size:clamp(24px,2.2vw,31px);line-height:1;color:var(--gold-hi);white-space:nowrap;letter-spacing:-.02em}
+.model .pr b.tbd{font-size:17px;color:var(--muted);font-family:var(--font);font-weight:600;letter-spacing:0}
+.model .pr small{font-size:12.5px;color:var(--dim)}
+.inside{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.inside span{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;color:#DCD6CC;background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:5px 11px}
+.inside svg{width:15px;height:15px;color:var(--gold)}
+.lbl{font-size:13.5px;font-weight:700;color:var(--muted);margin-bottom:8px;display:block}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips label{position:relative;cursor:pointer}
+.chips input{position:absolute;opacity:0;pointer-events:none}
+.chips span{display:block;border:1.5px solid var(--line);border-radius:11px;padding:8px 12px;font-size:14px;font-weight:600;white-space:nowrap;background:var(--bg2)}
+.chips input:checked+span{border-color:var(--gold);background:var(--gold-tint);color:#FFF6E6}
+.chips input:focus-visible+span{outline:2px solid var(--gold-hi);outline-offset:2px}
+.inp{display:grid;gap:6px;font-size:13.5px;font-weight:700;color:var(--muted)}
+.inp input{border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;font-size:16px;background:var(--bg2);color:var(--ink);outline:none;width:100%}
+.inp input::placeholder{color:var(--dim)}
+.inp input:focus{border-color:var(--gold)}
+.inp small{font-weight:500;color:var(--dim);font-size:12.5px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.agree{display:grid;grid-template-columns:20px minmax(0,1fr);gap:10px;align-items:start;font-size:13px;line-height:1.45;color:var(--muted);cursor:pointer}
+.agree input{width:18px;height:18px;margin:1px 0 0;accent-color:var(--gold)}
+.agree button{border:0;background:none;padding:0;color:var(--ink);text-decoration:underline;text-underline-offset:2px;cursor:pointer;font-size:13px}
+.stage .btn{width:100%;padding-block:16px}
+.row2{display:grid;grid-template-columns:auto 1fr;gap:8px}
+.row2 .btn.ghost{width:auto;padding-inline:18px}
+.note{font-size:12.5px;color:var(--dim);text-align:center}
+.pane{display:grid;gap:14px}
+.steps-bar{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.steps-bar span{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--dim);border-top:3px solid var(--line);padding-top:8px}
+.steps-bar span.on{color:var(--ink);border-color:var(--gold)}
+.steps-bar span i{font-style:normal;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-size:11.5px;background:var(--line);color:var(--ink)}
+.steps-bar span.on i{background:var(--gold);color:#1A1309}
+
+@media (max-width:1100px){.cats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:980px){
+  .hero{grid-template-columns:1fr;grid-template-areas:"t" "p" "m";row-gap:20px;padding-top:18px}
+  .h-t{align-self:start}
+  .podbor{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .draft{font-size:11.5px;padding-block:6px}
+  .hero{padding-block:14px 14px;row-gap:16px}
+  .h-t{gap:10px}
+  .h-t .eyebrow{font-size:11.5px;letter-spacing:.11em}
+  h1{font-size:31px;line-height:1.06}
+  .h-t .sub{display:none}
+  .shot{aspect-ratio:1.4;border-radius:22px}
+  .tr-h{display:none}
+  .live{left:10px;top:10px;font-size:12px;padding:6px 11px 6px 9px}
+  .track{left:8px;right:8px;bottom:8px;border-radius:16px;padding:10px 10px 11px;gap:9px}
+  .track ol{grid-template-columns:.8fr 1.3fr 1fr 1fr}
+  .track ol::before{width:75.6%}
+  .track ol::after{width:51.2%}
+  .tr-h b{font-size:13.5px}.tr-h span{font-size:11.5px}
+  .track li{font-size:10.5px;gap:6px;letter-spacing:-.01em}
+  .track li i{width:12px;height:12px}
+  .track ol::before,.track ol::after{top:5px}
+  .mbar{border-radius:18px}
+  .mbar>span{padding:10px 12px}
+  .mbar b{font-size:15px}
+  .mbar i{font-size:19px}
+  .cta .btn.ghost{display:none}
+  .cta .btn.gold{width:100%}
+  .cats{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:-16px;padding-inline:16px;scrollbar-width:none;gap:8px}
+  .cats::-webkit-scrollbar{display:none}
+  .cat{flex:0 0 74%;scroll-snap-align:start}
+  .stage{border-radius:24px;padding:14px}
+  .model{grid-template-columns:1fr}
+  .model .pr{text-align:left}
+  .plan{border-radius:20px;padding:12px 10px 10px}
+  .tabs span,.chips span{padding:7px 10px;font-size:13.5px}
+}
+@media (max-width:380px){.two{grid-template-columns:1fr}}
+
+/* структура */
+.s-head{background:linear-gradient(180deg,#1E1912,#121014);border-block:1px solid var(--gold-line);padding-block:clamp(44px,6vw,76px)}
+.s-head .eyebrow{color:#CDB58A}
+.s-head h2{font-family:var(--display);font-weight:700;font-size:clamp(28px,3.8vw,48px);letter-spacing:-.03em;line-height:1.08;margin-top:10px}
+.s-head .lead{font-size:clamp(16px,1.6vw,19px);color:#D5CCBD;max-width:58ch;margin-top:14px}
+.flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:34px;counter-reset:f}
+.flow div{position:relative;border:1.5px solid rgb(255 255 255 / .13);background:rgb(255 255 255 / .03);border-radius:22px;padding:18px 18px 20px;display:grid;gap:8px;align-content:start}
+.flow div::before{counter-increment:f;content:counter(f);width:30px;height:30px;border-radius:50%;background:rgb(255 255 255 / .12);display:grid;place-items:center;font-weight:800;font-size:14px}
+.flow div:last-child{background:var(--gold);border-color:var(--gold);color:#1A1309}
+.flow div:last-child::before{background:rgb(26 19 9 / .14)}
+.flow b{font-size:16.5px;line-height:1.3}
+.flow span{font-size:14px;color:color-mix(in srgb,currentColor 76%,transparent)}
+.flow div:not(:last-child)::after{content:"→";position:absolute;right:-12px;top:50%;transform:translate(50%,-50%);width:26px;height:26px;border-radius:50%;background:#18140F;border:1px solid rgb(255 255 255 / .18);color:#FFFFFF;display:grid;place-items:center;font-weight:800;z-index:1;font-size:13px}
+@media (max-width:860px){.flow{grid-template-columns:1fr 1fr}.flow div:nth-child(2)::after{display:none}}
+@media (max-width:520px){.flow{grid-template-columns:1fr}.flow div::after{display:none!important}}
+
+.blocks{padding-block:clamp(36px,5vw,64px);display:grid;gap:14px}
+.blk{display:grid;grid-template-columns:minmax(0,350px) minmax(0,1fr);gap:clamp(18px,3vw,40px);align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:clamp(14px,2vw,22px);scroll-margin-top:84px;transition:box-shadow .3s}
+.blk.hl{box-shadow:0 0 0 3px var(--gold)}
+.blk .txt{display:grid;gap:10px;min-width:0;padding-right:8px}
+.blk .no{font-family:var(--display);font-weight:700;font-size:15px;color:var(--gold-hi);letter-spacing:.06em}
+.blk h3{font-family:var(--display);font-weight:700;font-size:clamp(20px,2vw,25px);letter-spacing:-.02em;line-height:1.15}
+.blk .why{font-weight:600;font-size:16px}
+.blk ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.blk li{font-size:14px;font-weight:600;background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:6px 12px;color:var(--muted)}
+@media (max-width:760px){.blk{grid-template-columns:1fr}.blk .txt{padding:0 4px 6px}}
+
+/* мини-схемы блоков */
+.wf{aspect-ratio:16/10;max-width:100%;border-radius:18px;background:var(--bg2);border:1px solid var(--line);padding:10px;display:grid;gap:7px;overflow:hidden}
+.ln{display:block;height:7px;border-radius:4px;background:#2E2E36}
+.ln.g{background:var(--gold)}
+.ln.w{background:#E9E5DD}
+.pl{display:block;height:16px;border-radius:999px;background:#2E2E36}
+.pl.g{background:var(--gold)}
+.ph{border-radius:10px;background:#1C1C22 center/cover no-repeat}
+.wcard{background:var(--surface2);border-radius:10px;padding:6px;display:grid;gap:5px;align-content:start}
+.wrow{display:flex;align-items:center;gap:7px;background:var(--surface2);border-radius:8px;padding:6px 8px}
+.wrow .ln{flex:1}
+.dt{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--gold);flex:none}
+.mini-cap{display:block;width:100%;height:auto}
+
+/* что дальше */
+.next{padding-bottom:clamp(40px,6vw,72px)}
+.next-in{background:linear-gradient(135deg,#D9AE68,#9C7337);color:#1A1309;border-radius:30px;padding:clamp(24px,4vw,44px);display:grid;gap:22px}
+.next-in .eyebrow{color:rgb(26 19 9 / .7)}
+.next-in h2{font-family:var(--display);font-weight:700;font-size:clamp(24px,3vw,38px);letter-spacing:-.01em;margin-top:8px}
+.nsteps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;counter-reset:n}
+.nsteps div{background:rgb(255 255 255 / .22);border-radius:22px;padding:18px;display:grid;gap:6px;align-content:start}
+.nsteps div::before{counter-increment:n;content:counter(n);font-family:var(--display);font-weight:700;font-size:28px;line-height:1}
+.nsteps b{font-size:16.5px}
+.nsteps span{font-size:14.5px;color:rgb(26 19 9 / .82)}
+@media (max-width:760px){.nsteps{grid-template-columns:1fr}}
+
+footer{background:#08080A;border-top:1px solid var(--line)}
+footer .wrap{display:grid;gap:16px;padding-block:24px;font-size:13.5px;color:var(--muted)}
+.f-top,.f-bot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px}
+.f-bot{border-top:1px solid var(--line);padding-top:16px}
+.soc{display:flex;gap:8px}
+.f-docs{display:flex;flex-wrap:wrap;gap:6px 18px}
+.f-docs button{border:0;background:none;padding:0;cursor:pointer;color:var(--muted);text-decoration:underline;text-underline-offset:3px;font-size:13.5px}
+.sign{display:inline-flex;align-items:center;flex-wrap:wrap;gap:10px}
+.sign b{font-weight:800;letter-spacing:.06em;color:var(--ink)}
+.rnd{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--surface2);color:var(--ink);text-decoration:none}
+.rnd:hover{background:var(--ink);color:var(--bg)}
+.rnd svg{width:16px;height:16px}
+
+/* окна */
+dialog{border:1px solid var(--line);padding:0;border-radius:26px;background:var(--surface);color:var(--ink);width:min(460px,calc(100% - 24px));max-height:calc(100dvh - 24px);box-shadow:0 40px 80px -20px rgb(0 0 0 / .7)}
+dialog::backdrop{background:rgb(5 5 7 / .72);backdrop-filter:blur(3px)}
+.dl{padding:22px;display:grid;gap:16px}
+.dl-h{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.dl-h h2{font-family:var(--display);font-size:21px;font-weight:700;letter-spacing:-.02em}
+.x{width:38px;height:38px;border-radius:50%;border:0;background:var(--surface2);cursor:pointer;font-size:20px;line-height:1;display:grid;place-items:center;flex:none}
+.dl .btn{width:100%}
+.wamsg{background:#103529;color:#E9FBF1;border-radius:18px 18px 18px 6px;padding:12px 14px;font-size:14.5px;line-height:1.5;display:grid;gap:6px}
+.wamsg b.h{display:block;font-size:12.5px;color:#6FE3A5}
+.wamsg p{white-space:pre-line}
+.doc{font-size:14px;line-height:1.55;color:var(--muted);display:grid;gap:10px}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:12px 20px;border-radius:999px;font-weight:700;font-size:14px;z-index:60;width:max-content;max-width:calc(100% - 32px);text-align:center}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="draft"><span class="lg">Набросок для&nbsp;Capsula House: фото и&nbsp;факты из&nbsp;вашего Instagram и&nbsp;переписки, форма ничего не&nbsp;отправляет</span><span class="sm">Набросок: фото из&nbsp;Instagram, форма не&nbsp;отправляет</span></div>
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Capsula House"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M20 3 35 11.5v17L20 37 5 28.5v-17z"/><path d="M5 11.5 20 20l15-8.5M20 20v17"/><path d="M13 7.5 28 16v8" opacity=".55"/></svg><span><b>CAPSULA</b><small>HOUSE</small></span></a>
+    <nav><a href="#s-katalog">Модели</a><a href="#s-dostavka">Доставка и&nbsp;установка</a><a href="#s-zakaz">Как заказать</a><a href="#s-faq">Вопросы</a><a href="#s-kontakty">Контакты</a></nav>
+    <div class="h-right">
+      <a class="wa-top" href="https://wa.me/992907330008" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>+992&nbsp;90&nbsp;733&nbsp;0008</a>
+      <a class="ic wa" href="https://wa.me/992907330008" target="_blank" rel="noopener" aria-label="WhatsApp Capsula House" title="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg></a>
+      <a class="ic ig" href="https://instagram.com/capsula_house" target="_blank" rel="noopener" aria-label="Instagram Capsula House" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-ig"/></svg></a>
+      <button type="button" class="ic menu" aria-label="Меню" data-toast="На сайте здесь откроется меню разделов"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero-bg">
+    <section class="wrap hero">
+      <div class="h-t">
+        <p class="eyebrow">Капсульные дома · Таджикистан</p>
+        <h1>Капсульный дом под&nbsp;ключ. <em>Привезём готовым</em> на&nbsp;ваш участок</h1>
+        <p class="sub">Делаем под&nbsp;заказ, везём на&nbsp;трале и&nbsp;ставим на&nbsp;месте. Вам остаётся выбрать модель.</p>
+      </div>
+
+      <figure class="shot">
+        <img src="img/truck-hero.jpg" alt="Белая капсула с панорамными окнами едет на трале к заказчику" width="2020" height="1140" fetchpriority="high">
+        <span class="live"><i></i>Капсула едет к&nbsp;новому дому</span>
+        <div class="track" aria-label="Этапы заказа под ключ">
+          <div class="tr-h"><b>От&nbsp;проекта до&nbsp;установки</b><span>этап 3 из&nbsp;4</span></div>
+          <ol>
+            <li class="done"><i></i>Проект</li>
+            <li class="done"><i></i>Изготовление</li>
+            <li class="now"><i></i>Доставка</li>
+            <li><i></i>Установка</li>
+          </ol>
+        </div>
+      </figure>
+
+      <div class="h-m">
+        <a class="mbar" href="#podbor" data-focus>
+          <span><b>Капсула для&nbsp;жизни</b><small>жилая зона, кухня, санузел</small></span>
+          <span><i>35&nbsp;м²</i><small>площадь</small></span>
+          <span><i>10&nbsp;×&nbsp;3,5&nbsp;м</i><small>габариты</small></span>
+          <span class="pr"><i>25&nbsp;000&nbsp;$</i><small>под&nbsp;ключ</small></span>
+        </a>
+        <div class="cta"><a class="btn gold" href="#podbor" data-focus>Рассчитать доставку на&nbsp;мой участок</a><a class="btn ghost" href="https://wa.me/992907330008" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a></div>
+      </div>
+    </section>
+
+    <div class="wrap cats" role="navigation" aria-label="Что мы делаем">
+      <a class="cat on" href="#podbor" data-cat="dom"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="8" width="19" height="9" rx="4"/><path d="M6.5 8v9M17.5 8v9M11 11h2v6h-2z"/><path d="M5 20h14"/></svg></span><span><b>Дом для&nbsp;жизни</b><small>35&nbsp;м² · 25&nbsp;000&nbsp;$</small></span><span class="arr">→</span></a>
+      <a class="cat" href="#podbor" data-cat="sauna"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16M6 20v-7h12v7M9 4c-1 1.5 1 2.5 0 4M12 4c-1 1.5 1 2.5 0 4M15 4c-1 1.5 1 2.5 0 4"/></svg></span><span><b>Сауна и&nbsp;SPA</b><small>под&nbsp;ключ</small></span><span class="arr">→</span></a>
+      <a class="cat" href="#podbor" data-cat="ofis"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M9 7V5h6v2M3 12h18"/></svg></span><span><b>Офис, кабинет</b><small>под&nbsp;вашу задачу</small></span><span class="arr">→</span></a>
+      <a class="cat" href="#podbor" data-cat="kom"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5 5.5 5h13L20 9.5M4 9.5h16v1a2.7 2.7 0 0 1-5.3 0 2.7 2.7 0 0 1-5.4 0 2.7 2.7 0 0 1-5.3 0zM5.5 13v7h13v-7M10 20v-4h4v4"/></svg></span><span><b>Коммерческое</b><small>под&nbsp;ваш бизнес</small></span><span class="arr">→</span></a>
+    </div>
+  </div>
+
+  <section class="wrap podbor" id="podbor">
+    <div class="pb-l">
+      <p class="eyebrow">Подбор модели</p>
+      <h2>Выберите модель и&nbsp;получите расчёт с&nbsp;доставкой</h2>
+      <p class="sub">Укажите, где участок и&nbsp;когда нужен дом. Расчёт придёт в&nbsp;WhatsApp, без долгой переписки.</p>
+      <figure class="plan">
+        <svg viewBox="0 0 540 250" role="img" aria-label="Схема дома 35 квадратных метров: жилая зона, кухня и санузел, длина 10 метров, ширина 3,5 метра">
+          <g font-family="Onest,system-ui,sans-serif" font-size="13" font-weight="700">
+            <g stroke="#7B7771" stroke-width="1.2"><path d="M18 22h460M18 15v14M478 15v14"/><path d="M512 50v168M505 50h14M505 218h14"/></g>
+            <rect x="224" y="11" width="48" height="22" rx="11" fill="#17171C" stroke="#4D3D24"/><text x="248" y="26.5" text-anchor="middle" fill="#F1CD8C">10 м</text>
+            <rect x="490" y="123" width="44" height="22" rx="11" fill="#17171C" stroke="#4D3D24"/><text x="512" y="138.5" text-anchor="middle" fill="#F1CD8C">3,5 м</text>
+          </g>
+          <g transform="translate(-12 0)">
+          <rect x="30" y="50" width="460" height="168" rx="30" fill="#131318" stroke="#E9E5DD" stroke-width="3"/>
+          <path d="M44 62q-10 10-10 28v88q0 18 10 28M476 62q10 10 10 28v88q0 18-10 28" fill="none" stroke="#F1CD8C" stroke-width="4" stroke-linecap="round"/>
+          <g stroke="#E9E5DD" stroke-width="2.5"><path d="M300 50v62M300 150v68M405 50v168"/></g>
+          <path d="M300 112a38 38 0 0 1 38 38" fill="none" stroke="#5A5A64" stroke-width="1.4" stroke-dasharray="3 3"/>
+          <g fill="none" stroke="#5A5A64" stroke-width="1.6"><rect x="58" y="70" width="92" height="66" rx="8"/><path d="M58 88h92"/><rect x="176" y="168" width="96" height="30" rx="8"/><circle cx="214" cy="104" r="16"/><path d="M312 60h80v22h-80z"/><circle cx="330" cy="71" r="6"/><circle cx="352" cy="71" r="6"/><rect x="418" y="62" width="58" height="52" rx="6"/><path d="M418 62l58 52M476 62l-58 52" opacity=".5"/><rect x="430" y="168" width="34" height="30" rx="12"/></g>
+          <path d="M226 218h44" stroke="#131318" stroke-width="5"/><path d="M226 218v14M270 218v14" stroke="#7B7771" stroke-width="1.2"/>
+          <g font-family="Onest,system-ui,sans-serif" text-anchor="middle">
+            <text x="165" y="160" font-size="15" font-weight="700" fill="#F4F2EE">Жилая зона</text>
+            <text x="360" y="182" font-size="15" font-weight="700" fill="#F4F2EE">Кухня</text>
+            <text x="447" y="148" font-size="14" font-weight="700" fill="#F4F2EE">Санузел</text>
+            <text x="248" y="246" font-size="12" font-weight="600" fill="#7B7771">вход</text>
+          </g>
+          </g>
+        </svg>
+        <figcaption>Схема дома 35&nbsp;м². Точную планировку покажем на&nbsp;сайте по&nbsp;вашему проекту</figcaption>
+      </figure>
+    </div>
+
+    <form class="stage" id="zayavka" novalidate aria-labelledby="m-name">
+      <div class="st-in">
+        <div class="steps-bar" aria-hidden="true"><span class="on" id="sb1"><i>1</i>Модель</span><span id="sb2"><i>2</i>Куда привезти</span></div>
+
+        <div class="pane" id="p1">
+          <div class="tabs" role="radiogroup" aria-label="Что вам нужно">
+            <label><input type="radio" name="cat" value="dom" checked><span>Дом для&nbsp;жизни</span></label>
+            <label><input type="radio" name="cat" value="sauna"><span>Сауна и&nbsp;SPA</span></label>
+            <label><input type="radio" name="cat" value="ofis"><span>Офис, кабинет</span></label>
+            <label><input type="radio" name="cat" value="kom"><span>Коммерческое</span></label>
+          </div>
+          <div class="model" aria-live="polite">
+            <div><h3 id="m-name">Капсула 35&nbsp;м²</h3><p class="sz" id="m-sz">10 × 3,5&nbsp;м · под&nbsp;ключ</p></div>
+            <div class="pr"><b id="m-pr">25&nbsp;000&nbsp;$</b><small id="m-prs">комплектацию обсудим заранее</small></div>
+            <div class="inside" id="m-in"></div>
+          </div>
+          <div>
+            <span class="lbl" id="l-for">Для чего дом</span>
+            <div class="chips" role="radiogroup" aria-labelledby="l-for">
+              <label><input type="radio" name="for" value="жить самим" checked><span>Жить самим</span></label>
+              <label><input type="radio" name="for" value="дача, отдых"><span>Дача, отдых</span></label>
+              <label><input type="radio" name="for" value="сдавать посуточно"><span>Сдавать посуточно</span></label>
+              <label><input type="radio" name="for" value="для бизнеса"><span>Для бизнеса</span></label>
+            </div>
+          </div>
+          <button type="button" class="btn gold" id="go2">Дальше: куда привезти</button>
+        </div>
+
+        <div class="pane" id="p2" hidden>
+          <label class="inp">Где ваш участок<input id="f-addr" type="text" placeholder="Например, Варзоб или Вахдат" autocomplete="off"><small>Посмотрим подъезд для&nbsp;трала и&nbsp;скажем срок доставки</small></label>
+          <div>
+            <span class="lbl" id="l-when">Когда нужен дом</span>
+            <div class="chips" role="radiogroup" aria-labelledby="l-when">
+              <label><input type="radio" name="when" value="как можно скорее"><span>Как можно скорее</span></label>
+              <label><input type="radio" name="when" value="к весне" checked><span>К&nbsp;весне</span></label>
+              <label><input type="radio" name="when" value="к лету"><span>К&nbsp;лету</span></label>
+              <label><input type="radio" name="when" value="пока выбираю"><span>Пока выбираю</span></label>
+            </div>
+          </div>
+          <div class="two">
+            <label class="inp">Имя<input id="f-n" type="text" autocomplete="given-name" placeholder="Фаридун"></label>
+            <label class="inp">WhatsApp<input id="f-p" type="tel" autocomplete="tel" inputmode="tel" placeholder="+992 …"></label>
+          </div>
+          <label class="agree"><input type="checkbox" id="f-ok"><span>Даю <button type="button" data-doc="consent">согласие на&nbsp;обработку персональных данных</button> и&nbsp;принимаю <button type="button" data-doc="policy">политику конфиденциальности</button></span></label>
+          <div class="row2"><button type="button" class="btn ghost" id="back" aria-label="Назад к модели">←</button><button type="submit" class="btn gold" id="send" disabled>Получить расчёт в&nbsp;WhatsApp</button></div>
+          <p class="note">Это набросок: заявка никуда не&nbsp;отправится</p>
+        </div>
+      </div>
+    </form>
+  </section>
+
+<section class="s-head">
+    <div class="wrap">
+      <div class="eyebrow">Структура сайта</div>
+      <h2>Что будет на&nbsp;сайте Capsula House</h2>
+      <p class="lead">9 блоков на&nbsp;одной странице. Каждый отвечает на&nbsp;вопрос, который сейчас приходит в&nbsp;WhatsApp: сколько стоит, какой размер, сколько ждать и&nbsp;как привезёте на&nbsp;мой участок.</p>
+      <div class="flow">
+        <div><b>Видит ваш рилс</b><span>капсула в&nbsp;горах, у&nbsp;реки или на&nbsp;трале</span></div>
+        <div><b>Переходит на&nbsp;сайт</b><span>по&nbsp;ссылке в&nbsp;шапке Instagram</span></div>
+        <div><b>Выбирает модель и&nbsp;пишет адрес</b><span>размер, цена, для чего дом и&nbsp;где участок</span></div>
+        <div><b>Вам приходит одна заявка</b><span>модель, адрес, срок и&nbsp;телефон в&nbsp;WhatsApp, без расспросов по&nbsp;кусочкам</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap blocks">
+    <article class="blk" id="s-glavnyi">
+      <div class="wf" style="grid-template-columns:1fr 1.1fr;align-items:center">
+        <div style="display:grid;gap:7px;align-content:center">
+          <span class="ln" style="width:50%"></span>
+          <span class="ln w" style="width:94%;height:11px"></span><span class="ln w" style="width:70%;height:11px"></span><span class="ln g" style="width:82%;height:11px"></span>
+          <div class="wcard" style="grid-template-columns:repeat(3,1fr);gap:4px;padding:6px;margin-top:4px;border:1px solid #4D3D24"><span class="ln w" style="grid-column:1/-1;width:55%"></span><span class="ln" style="height:9px"></span><span class="ln" style="height:9px"></span><span class="ln g" style="height:9px"></span></div>
+          <span class="pl g" style="height:14px"></span>
+        </div>
+        <div class="ph" style="position:relative;aspect-ratio:1.15;background-image:url(img/truck.jpg);background-position:100% 50%">
+          <span style="position:absolute;left:6px;top:6px;width:46%;height:12px;border-radius:999px;background:rgb(13 13 16 / .75)"></span>
+          <span style="position:absolute;left:6px;right:6px;bottom:6px;height:24px;border-radius:8px;background:rgb(15 15 19 / .82);display:flex;align-items:center;padding:0 9px"><span style="flex:1;height:2px;background:linear-gradient(90deg,#D9AE68 52%,#3A3A44 52%)"></span></span>
+        </div>
+      </div>
+      <div class="txt"><span class="no">01</span><h3>Главный экран</h3><p class="why">За&nbsp;3&nbsp;секунды понятно: что за&nbsp;дом, сколько стоит и&nbsp;что его привезут на&nbsp;участок</p><ul><li>Фото настоящего выезда</li><li>Размер и&nbsp;цена сразу</li><li>Этапы от&nbsp;проекта до&nbsp;установки</li><li>Дома, сауны, офисы</li></ul></div>
+    </article>
+
+    <article class="blk" id="s-katalog">
+      <div class="wf" style="grid-template-columns:repeat(3,1fr);align-content:center;gap:6px">
+        <div class="wcard"><div class="ph" style="aspect-ratio:4/3;background-image:url(img/pin1.jpg)"></div><span class="ln w" style="width:70%"></span><span class="ln" style="width:50%"></span><span class="ln g" style="width:45%;height:9px"></span></div>
+        <div class="wcard"><div class="ph" style="aspect-ratio:4/3;background-image:url(img/river.jpg)"></div><span class="ln w" style="width:60%"></span><span class="ln" style="width:55%"></span><span class="ln g" style="width:40%;height:9px"></span></div>
+        <div class="wcard"><div class="ph" style="aspect-ratio:4/3;background-image:url(img/pin2.jpg)"></div><span class="ln w" style="width:66%"></span><span class="ln" style="width:48%"></span><span class="ln g" style="width:42%;height:9px"></span></div>
+        <div style="grid-column:1/-1;display:flex;gap:5px;margin-top:4px"><span class="pl g" style="width:22%;height:12px"></span><span class="pl" style="width:18%;height:12px"></span><span class="pl" style="width:16%;height:12px"></span><span class="pl" style="width:20%;height:12px"></span></div>
+      </div>
+      <div class="txt"><span class="no">02</span><h3>Каталог моделей</h3><p class="why">Ответ на&nbsp;«сколько стоит и&nbsp;какой размер» ещё до&nbsp;первого сообщения</p><ul><li>Площадь и&nbsp;габариты</li><li>Цена «под&nbsp;ключ»</li><li>Срок изготовления</li><li>Заявка с&nbsp;адресом участка</li></ul></div>
+    </article>
+
+    <article class="blk" id="s-model">
+      <div class="wf" style="grid-template-columns:1fr 1fr;align-items:center">
+        <div style="display:grid;gap:6px">
+          <div class="ph" style="aspect-ratio:4/3;background-image:url(img/pin1.jpg)"></div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px"><div class="ph" style="aspect-ratio:1;background-image:url(img/pin2.jpg)"></div><div class="ph" style="aspect-ratio:1;background-image:url(img/river.jpg)"></div><div class="ph" style="aspect-ratio:1;background-image:url(img/truck.jpg)"></div></div>
+        </div>
+        <div style="display:grid;gap:7px">
+          <div style="display:grid;grid-template-columns:2fr 1.2fr .8fr;height:34px;border:1.5px solid #4D4D58;border-radius:6px;overflow:hidden"><span style="background:#2A2318"></span><span style="background:#22222A;border-left:1.5px solid #4D4D58"></span><span style="background:#1E2A26;border-left:1.5px solid #4D4D58"></span></div>
+          <div style="display:flex;justify-content:space-between"><span class="ln" style="width:30%;height:5px"></span><span class="ln" style="width:20%;height:5px"></span></div>
+          <span class="ln w" style="width:75%"></span><span class="ln" style="width:90%"></span><span class="ln" style="width:70%"></span>
+          <span class="pl g" style="height:13px;margin-top:3px"></span>
+        </div>
+      </div>
+      <div class="txt"><span class="no">03</span><h3>Карточка модели</h3><p class="why">Всё про один дом на&nbsp;одном экране, чтобы спросить уже про&nbsp;детали</p><ul><li>План 10 × 3,5&nbsp;м</li><li>Жилая зона, кухня, санузел</li><li>Что можно поменять в&nbsp;комплектации</li><li>Фото и&nbsp;видео</li><li>«Хочу эту модель»</li></ul></div>
+    </article>
+
+    <article class="blk" id="s-dostavka">
+      <div class="wf" style="grid-template-columns:1.1fr 1fr;align-items:stretch">
+        <div class="ph" style="background-image:url(img/truck.jpg)"></div>
+        <div style="display:grid;gap:6px;align-content:center">
+          <div class="wrow"><span class="dt"></span><span class="ln w"></span></div>
+          <div class="wrow"><span class="dt"></span><span class="ln"></span></div>
+          <div class="wrow"><span class="dt"></span><span class="ln"></span></div>
+          <div class="wrow"><span class="dt"></span><span class="ln"></span></div>
+        </div>
+      </div>
+      <div class="txt"><span class="no">04</span><h3>Доставка и&nbsp;установка</h3><p class="why">Отвечает на&nbsp;«как привезёте на&nbsp;мой участок» с&nbsp;фото настоящих выездов</p><ul><li>Трал до&nbsp;участка</li><li>Что подготовить на&nbsp;месте</li><li>Куда возите по&nbsp;Таджикистану</li><li>Видео выездов</li></ul></div>
+    </article>
+
+    <article class="blk" id="s-dlya">
+      <div class="wf" style="grid-template-columns:repeat(2,1fr);align-content:center;gap:6px">
+        <div class="wcard" style="grid-template-columns:auto 1fr;align-items:center;gap:8px;padding:9px"><span class="dt" style="width:22px;height:22px;border-radius:7px"></span><span class="ln w"></span></div>
+        <div class="wcard" style="grid-template-columns:auto 1fr;align-items:center;gap:8px;padding:9px"><span class="dt" style="width:22px;height:22px;border-radius:7px;opacity:.7"></span><span class="ln"></span></div>
+        <div class="wcard" style="grid-template-columns:auto 1fr;align-items:center;gap:8px;padding:9px"><span class="dt" style="width:22px;height:22px;border-radius:7px;opacity:.7"></span><span class="ln"></span></div>
+        <div class="wcard" style="grid-template-columns:auto 1fr;align-items:center;gap:8px;padding:9px"><span class="dt" style="width:22px;height:22px;border-radius:7px;opacity:.7"></span><span class="ln"></span></div>
+        <div class="wcard" style="grid-column:1/-1;grid-template-columns:auto 1fr;align-items:center;gap:8px;padding:9px"><span class="dt" style="width:22px;height:22px;border-radius:7px;opacity:.7"></span><span class="ln" style="width:60%"></span></div>
+      </div>
+      <div class="txt"><span class="no">05</span><h3>Для чего берут капсулу</h3><p class="why">Человек узнаёт свою задачу и&nbsp;сразу видит подходящую модель</p><ul><li>Дом для&nbsp;жизни</li><li>Дача и&nbsp;отдых в&nbsp;горах</li><li>Посуточная сдача</li><li>Сауна и&nbsp;SPA</li><li>Офис и&nbsp;кабинет</li></ul></div>
+    </article>
+
+    <article class="blk" id="s-zakaz">
+      <div class="wf" style="align-content:center;padding:16px">
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;position:relative">
+          <span style="position:absolute;left:12%;right:12%;top:13px;height:2px;background:#2E2E36"></span>
+          <div style="display:grid;gap:7px;justify-items:center;position:relative"><span style="width:28px;height:28px;border-radius:50%;background:var(--gold);color:#1A1309;display:grid;place-items:center;font-size:11px;font-weight:800">1</span><span class="ln" style="width:80%"></span><span class="ln" style="width:55%"></span></div>
+          <div style="display:grid;gap:7px;justify-items:center;position:relative"><span style="width:28px;height:28px;border-radius:50%;background:var(--surface2);border:1.5px solid var(--gold);display:grid;place-items:center;font-size:11px;font-weight:800">2</span><span class="ln" style="width:80%"></span><span class="ln" style="width:55%"></span></div>
+          <div style="display:grid;gap:7px;justify-items:center;position:relative"><span style="width:28px;height:28px;border-radius:50%;background:var(--surface2);border:1.5px solid var(--gold);display:grid;place-items:center;font-size:11px;font-weight:800">3</span><span class="ln" style="width:80%"></span><span class="ln" style="width:55%"></span></div>
+          <div style="display:grid;gap:7px;justify-items:center;position:relative"><span style="width:28px;height:28px;border-radius:50%;background:var(--surface2);border:1.5px solid var(--gold);display:grid;place-items:center;font-size:11px;font-weight:800">4</span><span class="ln" style="width:80%"></span><span class="ln" style="width:55%"></span></div>
+        </div>
+        <div class="wcard" style="grid-template-columns:auto 1fr;align-items:center;gap:10px;padding:10px;margin-top:10px"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#D9AE68" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/></svg><div style="display:grid;gap:5px"><span class="ln w" style="width:55%"></span><span class="ln" style="width:85%"></span></div></div>
+      </div>
+      <div class="txt"><span class="no">06</span><h3>Как проходит заказ</h3><p class="why">От&nbsp;проекта до&nbsp;установки по&nbsp;шагам, со&nbsp;сроками и&nbsp;порядком оплаты</p><ul><li>Проект и&nbsp;комплектация</li><li>Изготовление</li><li>Доставка</li><li>Установка</li><li>Порядок оплаты</li></ul></div>
+    </article>
+
+    <article class="blk" id="s-video">
+      <div class="wf" style="grid-template-columns:repeat(4,1fr);align-items:center;gap:5px">
+        <div class="ph" style="aspect-ratio:9/14;background-image:url(img/river.jpg)"></div>
+        <div class="ph" style="aspect-ratio:9/14;background-image:url(img/truck.jpg)"></div>
+        <div class="ph" style="aspect-ratio:9/14;background-image:url(img/pin2.jpg)"></div>
+        <div class="ph" style="aspect-ratio:9/14;background-image:url(img/pin1.jpg)"></div>
+      </div>
+      <div class="txt"><span class="no">07</span><h3>Видео и&nbsp;выезды</h3><p class="why">Хайлайтс work shorts, technology и&nbsp;about capsule работают и&nbsp;на&nbsp;сайте</p><ul><li>Капсула на&nbsp;трале</li><li>Монтаж на&nbsp;участке</li><li>Мебель и&nbsp;отделка</li><li>Технологии</li></ul></div>
+    </article>
+
+    <article class="blk" id="s-faq">
+      <div class="wf" style="align-content:center">
+        <div class="wcard" style="grid-template-columns:1fr auto;align-items:center;padding:9px"><span class="ln" style="width:70%"></span><b style="color:var(--gold);font-size:13px">+</b></div>
+        <div class="wcard" style="grid-template-columns:1fr auto;align-items:center;padding:9px"><span class="ln" style="width:55%"></span><b style="color:var(--gold);font-size:13px">+</b></div>
+        <div class="wcard" style="grid-template-columns:1fr auto;align-items:center;padding:9px"><span class="ln" style="width:80%"></span><b style="color:var(--gold);font-size:13px">+</b></div>
+        <div class="wcard" style="grid-template-columns:1fr auto;align-items:center;padding:9px"><span class="ln" style="width:45%"></span><b style="color:var(--gold);font-size:13px">+</b></div>
+      </div>
+      <div class="txt"><span class="no">08</span><h3>Вопросы и&nbsp;ответы</h3><p class="why">Ответы до&nbsp;того, как их зададут в&nbsp;WhatsApp</p><ul><li>Входит&nbsp;ли доставка в&nbsp;цену</li><li>Сколько ждать</li><li>Нужен&nbsp;ли фундамент</li><li>Можно&nbsp;ли жить зимой</li><li>Гарантия</li></ul></div>
+    </article>
+
+    <article class="blk" id="s-kontakty">
+      <div class="wf" style="grid-template-columns:1fr 1fr;align-items:stretch">
+        <div style="position:relative;border-radius:10px;background:linear-gradient(90deg,#23232B 1px,transparent 1px) 0 0/22px 22px,linear-gradient(#23232B 1px,transparent 1px) 0 0/22px 22px,var(--surface2)">
+          <span style="position:absolute;left:44%;top:38%;width:16px;height:16px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--gold);box-shadow:0 0 0 6px rgb(217 174 104 / .2)"></span>
+        </div>
+        <div style="display:grid;gap:6px;align-content:center">
+          <div class="wrow"><span class="dt" style="background:var(--wa)"></span><span class="ln w"></span></div>
+          <div class="wrow"><span class="dt"></span><span class="ln"></span></div>
+          <div class="wrow"><span class="dt"></span><span class="ln"></span></div>
+          <div style="display:flex;gap:5px;margin-top:4px"><span style="width:22px;height:22px;border-radius:50%;background:var(--wa)"></span><span style="width:22px;height:22px;border-radius:50%;background:#C13584"></span><span class="pl g" style="flex:1;height:22px"></span></div>
+        </div>
+      </div>
+      <div class="txt"><span class="no">09</span><h3>Контакты</h3><p class="why">WhatsApp, телефон и&nbsp;где посмотреть капсулу вживую</p><ul><li>WhatsApp +992&nbsp;90&nbsp;733&nbsp;0008</li><li>Instagram @capsula_house</li><li>Адрес офиса или площадки</li></ul></div>
+    </article>
+  </div>
+
+  <section class="wrap next">
+    <div class="next-in">
+      <div><div class="eyebrow">Что дальше</div><h2>Три шага до&nbsp;сайта</h2></div>
+      <div class="nsteps">
+        <div><b>Утверждаем структуру</b><span>Вы смотрите и&nbsp;говорите, какие блоки убрать или добавить</span></div>
+        <div><b>Собираем материалы</b><span>Модели с&nbsp;размерами и&nbsp;ценами, сроки, фото и&nbsp;видео выездов</span></div>
+        <div><b>Сайт готов за&nbsp;7–10&nbsp;дней</b><span>Ссылка встаёт в&nbsp;шапку Instagram, заявки с&nbsp;адресом приходят в&nbsp;WhatsApp</span></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div class="soc">
+        <a class="rnd" href="https://wa.me/992907330008" target="_blank" rel="noopener" aria-label="WhatsApp Capsula House" title="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg></a>
+        <a class="rnd" href="https://instagram.com/capsula_house" target="_blank" rel="noopener" aria-label="Instagram Capsula House" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-ig"/></svg></a>
+      </div>
+      <div class="f-docs"><button type="button" data-doc="policy">Политика конфиденциальности</button><button type="button" data-doc="consent">Согласие на&nbsp;обработку персональных данных</button></div>
+    </div>
+    <div class="f-bot">
+      <span>Подготовила Анастасия Абдуллаева</span>
+      <span class="sign"><span><b>FOR.MI</b> designed &amp; developed by ABN</span><a class="rnd" href="https://t.me/abanev_dev" target="_blank" rel="noopener" aria-label="Telegram" title="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tg"/></svg></a></span>
+    </div>
+  </div>
+</footer>
+
+<dialog id="dlg" aria-labelledby="dlg-t">
+  <div class="dl">
+    <div class="dl-h"><h2 id="dlg-t">Так заявка придёт вам</h2><button type="button" class="x" data-close aria-label="Закрыть">×</button></div>
+    <div class="wamsg"><b class="h">Заявка с&nbsp;сайта Capsula House</b><p id="m-t"></p></div>
+    <p class="note">Остаётся ответить расчётом: модель, адрес и&nbsp;срок уже в&nbsp;сообщении</p>
+    <button type="button" class="btn gold" data-close>Понятно</button>
+  </div>
+</dialog>
+
+<dialog id="docs" aria-labelledby="doc-t">
+  <div class="dl">
+    <div class="dl-h"><h2 id="doc-t">Политика конфиденциальности</h2><button type="button" class="x" data-close aria-label="Закрыть">×</button></div>
+    <div class="doc" id="doc-b"></div>
+  </div>
+</dialog>
+
+<div class="toast" id="toast" hidden></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-tg" viewBox="0 0 24 24"><path fill="currentColor" d="M21.4 4.3 2.9 11.5c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.5c.2.6.4.8.9.8s.6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8L22.8 5.8c.3-1.3-.4-1.9-1.4-1.5zM8.6 14.1l9.6-6c.5-.3.9-.1.5.2l-7.8 7.1-.3 3.3-2-4.6z"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/></g><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.2A9.7 9.7 0 0 0 3.6 16.8L2.3 21.7l5-1.3A9.7 9.7 0 1 0 12 2.2zm0 17.7a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 19.9zm4.4-6c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.8 1c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1 4.9 4.9 0 0 0 1 2.6 11.2 11.2 0 0 0 4.3 3.8c1.6.7 2.2.8 3 .6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1l-.5-.8z"/></symbol>
+</svg>
+
+<script>
+/* Факты: Instagram @capsula_house (шапка, хайлайтс, посты 29 июля и 3 октября 2026), ответ в WhatsApp 17 ноября 2026: дом 35 м², 10 × 3,5 м, под ключ, жилая зона, кухня, санузел, 25 000 $, изготовление под заказ */
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const esc=s=>s.replace(/[<>&"]/g,c=>({"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c]));
+
+const IC={
+  live:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-5a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v5M3 15h18M6 10V7h12v3"/></svg>',
+  kitchen:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="1.5"/><path d="M4 14h16M9 4v3M12 3v4M15 4v3"/></svg>',
+  bath:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16v2a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5zM6 12V6a2 2 0 0 1 4 0M7 19l-1 2M17 19l1 2"/></svg>',
+  plan:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 5v14M10 12h11"/></svg>'
+};
+const MODELS={
+  dom:{name:"Капсула 35&nbsp;м²",sz:"10 × 3,5&nbsp;м · под&nbsp;ключ",pr:"25&nbsp;000&nbsp;$",prs:"комплектацию обсудим заранее",tag:"10 × 3,5 м · 35 м²",inside:[["live","Жилая зона"],["kitchen","Кухня"],["bath","Санузел"]],txt:"Дом для жизни, 35 м², 10 × 3,5 м"},
+  sauna:{name:"Сауна и&nbsp;SPA",sz:"под&nbsp;ключ, размер под&nbsp;вашу задачу",pr:"цена уточняется",prs:"посчитаем по&nbsp;заявке",tag:"сауна под ключ",inside:[["plan","Состав обсуждаем с&nbsp;вами"]],txt:"Сауна и SPA"},
+  ofis:{name:"Офис, кабинет",sz:"размер под&nbsp;вашу задачу",pr:"цена уточняется",prs:"посчитаем по&nbsp;заявке",tag:"офис или кабинет",inside:[["plan","Планировка под&nbsp;работу"]],txt:"Офис, кабинет"},
+  kom:{name:"Коммерческое помещение",sz:"размер под&nbsp;вашу задачу",pr:"цена уточняется",prs:"посчитаем по&nbsp;заявке",tag:"коммерческое помещение",inside:[["plan","Планировка под&nbsp;бизнес"]],txt:"Коммерческое помещение"}
+};
+function setModel(k){
+  const m=MODELS[k];
+  $("#m-name").innerHTML=m.name;$("#m-sz").innerHTML=m.sz;
+  const pr=$("#m-pr");pr.innerHTML=m.pr;pr.classList.toggle("tbd",k!=="dom");
+  $("#m-prs").innerHTML=m.prs;
+  $("#m-in").innerHTML=m.inside.map(([i,t])=>`<span>${IC[i]}${t}</span>`).join("");
+}
+$$('input[name="cat"]').forEach(r=>r.addEventListener("change",()=>setModel(r.value)));
+setModel("dom");
+
+function step(k){
+  $("#p1").hidden=k!==1;$("#p2").hidden=k!==2;
+  $("#sb2").classList.toggle("on",k===2);
+}
+$("#go2").onclick=()=>{step(2);$("#f-addr").focus({preventScroll:true})};
+$("#back").onclick=()=>step(1);
+$$("[data-cat]").forEach(a=>a.addEventListener("click",()=>{const r=$('input[name="cat"][value="'+a.dataset.cat+'"]');r.checked=true;setModel(r.value);step(1);$$(".cat").forEach(c=>c.classList.toggle("on",c===a));setTimeout(()=>r.focus({preventScroll:true}),450)}));
+$("#f-ok").onchange=e=>{$("#send").disabled=!e.target.checked};
+$$("[data-focus]").forEach(a=>a.addEventListener("click",()=>setTimeout(()=>$('input[name="cat"]:checked').focus({preventScroll:true}),450)));
+
+function openDlg(d){if(typeof d.showModal==="function")d.showModal();else d.setAttribute("open","")}
+function closeDlg(d){if(typeof d.close==="function")d.close();else d.removeAttribute("open")}
+$("#zayavka").onsubmit=e=>{
+  e.preventDefault();if(!$("#f-ok").checked)return;
+  const m=MODELS[$('input[name="cat"]:checked').value];
+  const goal=$('input[name="for"]:checked').value,when=$('input[name="when"]:checked').value;
+  const addr=$("#f-addr").value.trim()||"Варзоб",name=$("#f-n").value.trim()||"Фаридун",tel=$("#f-p").value.trim()||"+992 …";
+  $("#m-t").innerHTML=`• Модель: ${esc(m.txt)}\n• Для чего: ${esc(goal)}\n• Участок: ${esc(addr)}\n• Когда: ${esc(when)}\n• ${esc(name)}, ${esc(tel)}`;
+  openDlg($("#dlg"));
+};
+$$("[data-close]").forEach(b=>b.onclick=()=>closeDlg(b.closest("dialog")));
+$$("dialog").forEach(d=>d.addEventListener("click",e=>{if(e.target===d)closeDlg(d)}));
+
+function toast(t){const el=$("#toast");el.textContent=t;el.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>el.hidden=true,2600)}
+$$("[data-toast]").forEach(b=>b.onclick=()=>toast(b.dataset.toast));
+
+/* подсветка блока структуры при переходе из меню */
+$$('a[href^="#s-"]').forEach(a=>a.addEventListener("click",()=>{const b=$(a.getAttribute("href"));if(!b)return;b.classList.add("hl");setTimeout(()=>b.classList.remove("hl"),1600)}));
+
+/* документы: реквизиты появятся на готовом сайте */
+const OWNER="[ИП / название, уточнить]";
+const DOCS={
+  policy:["Политика конфиденциальности",`<p>${OWNER} обрабатывает имя, телефон и адрес участка, которые вы отправляете через форму, только чтобы рассчитать дом, доставку и связаться с вами.</p><p>Данные не передаются третьим лицам и хранятся до окончания заказа или отказа от него. Отозвать согласие можно, написав в WhatsApp Capsula House.</p><p>Полный текст с реквизитами появится на готовом сайте.</p>`],
+  consent:["Согласие на обработку персональных данных",`<p>Отмечая галочку, вы соглашаетесь, что ${OWNER} обработает ваше имя, телефон и адрес участка для расчёта дома и доставки.</p><p>Согласие действует до его отзыва. Отозвать его можно, написав в WhatsApp Capsula House.</p>`]
+};
+$$("[data-doc]").forEach(b=>b.addEventListener("click",()=>{const [t,h]=DOCS[b.dataset.doc];$("#doc-t").textContent=t;$("#doc-b").innerHTML=h;openDlg($("#docs"))}));
+</script>
+
+</body>
+</html>
